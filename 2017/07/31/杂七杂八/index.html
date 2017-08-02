@@ -108,18 +108,18 @@
 
 
 
-<meta name="description" content="Hi, 我是JewSaten. java@Override    public void onEventMainThread(LoginErrorEvent event) {        if(mUserFragment.isUserLogout()){            ConfigUtils.removeCurrentUser(this);            ConfigUtils.">
+<meta name="description" content="Hi, 我是JewSaten. java @Override     public void onEventMainThread(LoginErrorEvent event) {         if(mUserFragment.isUserLogout()){             ConfigUtils.removeCurrentUser(this);             ConfigU">
 <meta name="keywords" content="杂七杂八">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hi, 我是JewSaten.">
 <meta property="og:url" content="http://yoursite.com/2017/07/31/杂七杂八/index.html">
 <meta property="og:site_name" content="JewSaten&#39;s Blog">
-<meta property="og:description" content="Hi, 我是JewSaten. java@Override    public void onEventMainThread(LoginErrorEvent event) {        if(mUserFragment.isUserLogout()){            ConfigUtils.removeCurrentUser(this);            ConfigUtils.">
+<meta property="og:description" content="Hi, 我是JewSaten. java @Override     public void onEventMainThread(LoginErrorEvent event) {         if(mUserFragment.isUserLogout()){             ConfigUtils.removeCurrentUser(this);             ConfigU">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-02T08:29:49.483Z">
+<meta property="og:updated_time" content="2017-08-02T08:32:09.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hi, 我是JewSaten.">
-<meta name="twitter:description" content="Hi, 我是JewSaten. java@Override    public void onEventMainThread(LoginErrorEvent event) {        if(mUserFragment.isUserLogout()){            ConfigUtils.removeCurrentUser(this);            ConfigUtils.">
+<meta name="twitter:description" content="Hi, 我是JewSaten. java @Override     public void onEventMainThread(LoginErrorEvent event) {         if(mUserFragment.isUserLogout()){             ConfigUtils.removeCurrentUser(this);             ConfigU">
 
 
 
@@ -374,7 +374,18 @@
 
       
         <p>Hi, 我是JewSaten.</p>
-<p><code>java<br>@Override<br>    public void onEventMainThread(LoginErrorEvent event) {<br>        if(mUserFragment.isUserLogout()){<br>            ConfigUtils.removeCurrentUser(this);<br>            ConfigUtils.setHttpHeadersCookie(this,&quot;&quot;);<br>            startNewActivity(LoginActivity.class);<br>            finish();<br>            return;<br>        }<br>        super.onEventMainThread(event);<br>    }</code></p>
+<p><code><code>java
+@Override
+    public void onEventMainThread(LoginErrorEvent event) {
+        if(mUserFragment.isUserLogout()){
+            ConfigUtils.removeCurrentUser(this);
+            ConfigUtils.setHttpHeadersCookie(this,&amp;quot;&amp;quot;);
+            startNewActivity(LoginActivity.class);
+            finish();
+            return;
+        }
+        super.onEventMainThread(event);
+    }&lt;/code&gt;</code></code></p>
 
       
     </div>
