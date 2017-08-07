@@ -108,17 +108,17 @@
 
 
 
-<meta name="description" content="Android Room持久化库简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K)  ‘’’java">
+<meta name="description" content="Android Room持久化库简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K) ‘’’java@">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Room持久化库">
 <meta property="og:url" content="http://yoursite.com/2017/08/07/android-room/index.html">
 <meta property="og:site_name" content="JewSaten&#39;s Blog">
-<meta property="og:description" content="Android Room持久化库简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K)  ‘’’java">
+<meta property="og:description" content="Android Room持久化库简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K) ‘’’java@">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-07T10:14:21.770Z">
+<meta property="og:updated_time" content="2017-08-07T10:16:56.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Room持久化库">
-<meta name="twitter:description" content="Android Room持久化库简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K)  ‘’’java">
+<meta name="twitter:description" content="Android Room持久化库简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K) ‘’’java@">
 
 
 
@@ -365,24 +365,22 @@
 <ul>
 <li><strong>Database:</strong> 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口.</li>
 <li><strong>Entity:</strong> </li>
-<li><strong>DAO:</strong> (<code>Ctrl+K</code>)</li>
-</ul>
-<p>‘’’java<br>@Database(entities = {Contact.class}, version = 1)<br>public abstract class ContactDatabase extends RoomDatabase{<br>    private static ContactDatabase INSTANCE;</p>
-<pre><code>public abstract ContactsDao contactDao();
-
-private static final Object sLock = new Object();
-
-public static ContactDatabase getInstance(Context context) {
-    synchronized (sLock) {
-        if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                    ContactDatabase.class, &quot;Contacts.db&quot;)
-                    .build();
-        }
-        return INSTANCE;
+<li><p><strong>DAO:</strong> (<code>Ctrl+K</code>)</p>
+<p>‘’’java<br>@Database(entities = {Contact.class}, version = 1)<br>public abstract class ContactDatabase extends RoomDatabase{<br>  private static ContactDatabase INSTANCE;</p>
+<p>  public abstract ContactsDao contactDao();</p>
+<p>  private static final Object sLock = new Object();</p>
+<p>  public static ContactDatabase getInstance(Context context) {</p>
+<pre><code>synchronized (sLock) {
+    if (INSTANCE == null) {
+        INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                ContactDatabase.class, &quot;Contacts.db&quot;)
+                .build();
     }
+    return INSTANCE;
 }
-</code></pre><p>}’’’</p>
+</code></pre><p>  }<br>} ‘’’</p>
+</li>
+</ul>
 
       
     </div>
