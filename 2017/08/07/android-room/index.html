@@ -108,17 +108,17 @@
 
 
 
-<meta name="description" content="简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K)  12345678910111213141516">
+<meta name="description" content="简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO:   12345678910111213141516171819@D">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Room持久化库">
 <meta property="og:url" content="http://yoursite.com/2017/08/07/android-room/index.html">
 <meta property="og:site_name" content="JewSaten&#39;s Blog">
-<meta property="og:description" content="简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K)  12345678910111213141516">
+<meta property="og:description" content="简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO:   12345678910111213141516171819@D">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-07T10:21:22.501Z">
+<meta property="og:updated_time" content="2017-08-07T10:21:51.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Room持久化库">
-<meta name="twitter:description" content="简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO: (Ctrl+K)  12345678910111213141516">
+<meta name="twitter:description" content="简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口. Entity:  DAO:   12345678910111213141516171819@D">
 
 
 
@@ -365,7 +365,7 @@
 <ul>
 <li><strong>Database:</strong> 通过该组件你可以创建持有操作数据库的对象.注解定义实体的列表，类的内容定义从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口.</li>
 <li><strong>Entity:</strong> </li>
-<li><strong>DAO:</strong> (<code>Ctrl+K</code>)</li>
+<li><strong>DAO:</strong> </li>
 </ul>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Database</span>(entities = &#123;<span class="type">Contact</span>.<span class="keyword">class</span>&#125;, version = <span class="number">1</span>)</div><div class="line">public <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactDatabase</span> <span class="keyword">extends</span> <span class="title">RoomDatabase</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> static <span class="type">ContactDatabase</span> <span class="type">INSTANCE</span>;</div><div class="line"></div><div class="line">    public <span class="keyword">abstract</span> <span class="type">ContactsDao</span> contactDao();</div><div class="line"></div><div class="line">    <span class="keyword">private</span> static <span class="keyword">final</span> <span class="type">Object</span> sLock = <span class="keyword">new</span> <span class="type">Object</span>();</div><div class="line"></div><div class="line">    public static <span class="type">ContactDatabase</span> getInstance(<span class="type">Context</span> context) &#123;</div><div class="line">        synchronized (sLock) &#123;</div><div class="line">            <span class="keyword">if</span> (<span class="type">INSTANCE</span> == <span class="literal">null</span>) &#123;</div><div class="line">                <span class="type">INSTANCE</span> = <span class="type">Room</span>.databaseBuilder(context.getApplicationContext(),</div><div class="line">                        <span class="type">ContactDatabase</span>.<span class="keyword">class</span>, <span class="string">"Contacts.db"</span>)</div><div class="line">                        .build();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="type">INSTANCE</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
