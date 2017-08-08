@@ -108,19 +108,19 @@
 
 
 
-<meta name="description" content="前言简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义了实体的列表，类的内容定义了从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口.   注: 此组件一个继承自RoomDatabase的抽象类。代码中可以通过调用Room">
+<meta name="description" content="前言简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库。 Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象。注解定义了实体的列表，类的内容定义了从数据库中获取数据的对象（DAO），同时它也是底层连接的主要入口。   注: 此组件一个继承自RoomDatabase的抽象类。代码中可以通过调用Room">
 <meta name="keywords" content="room database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Room持久化库">
 <meta property="og:url" content="http://yoursite.com/2017/08/07/android-room/index.html">
 <meta property="og:site_name" content="JewSaten&#39;s Blog">
-<meta property="og:description" content="前言简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义了实体的列表，类的内容定义了从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口.   注: 此组件一个继承自RoomDatabase的抽象类。代码中可以通过调用Room">
+<meta property="og:description" content="前言简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库。 Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象。注解定义了实体的列表，类的内容定义了从数据库中获取数据的对象（DAO），同时它也是底层连接的主要入口。   注: 此组件一个继承自RoomDatabase的抽象类。代码中可以通过调用Room">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/upload_image/room-1.png">
-<meta property="og:updated_time" content="2017-08-08T07:37:15.845Z">
+<meta property="og:updated_time" content="2017-08-08T09:47:09.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Room持久化库">
-<meta name="twitter:description" content="前言简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库. Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象.注解定义了实体的列表，类的内容定义了从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口.   注: 此组件一个继承自RoomDatabase的抽象类。代码中可以通过调用Room">
+<meta name="twitter:description" content="前言简化过的 Room 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库。 Room 中有三个主要的组件：  Database: 通过该组件你可以创建持有操作数据库的对象。注解定义了实体的列表，类的内容定义了从数据库中获取数据的对象（DAO），同时它也是底层连接的主要入口。   注: 此组件一个继承自RoomDatabase的抽象类。代码中可以通过调用Room">
 <meta name="twitter:image" content="http://yoursite.com/upload_image/room-1.png">
 
 
@@ -385,10 +385,10 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>简化过的 <strong>Room</strong> 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库.</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>简化过的 <strong>Room</strong> 提供了一个对象映射抽象层，以便在使用SQLite强大功能的同时能够更加流畅的访问数据库。</p>
 <p><strong>Room</strong> 中有三个主要的组件：</p>
 <ul>
-<li><strong>Database:</strong> 通过该组件你可以创建持有操作数据库的对象.注解定义了实体的列表，类的内容定义了从数据库中获取数据的对象（DAO）.同时它也是底层连接的主要入口.</li>
+<li><strong>Database:</strong> 通过该组件你可以创建持有操作数据库的对象。注解定义了实体的列表，类的内容定义了从数据库中获取数据的对象（DAO），同时它也是底层连接的主要入口。</li>
 </ul>
 <blockquote>
 <p>注: 此组件一个继承自RoomDatabase的抽象类。代码中可以通过调用Room.databaseBuilder或Room.inMemoryDatabaseBuilder()来获得一个实例。</p>
@@ -408,7 +408,7 @@
 </ul>
 <figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">        maven &#123; url <span class="string">'https://maven.google.com'</span> &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>注： 编译过程可能遇到链接不到maven的问题,将maven { url ‘<a href="https://maven.google.com" target="_blank" rel="external">https://maven.google.com</a>‘ } 换成 maven { url “<a href="https://dl.google.com/dl/android/maven2/&quot;}" target="_blank" rel="external">https://dl.google.com/dl/android/maven2/&quot;}</a> 便可</p>
+<p>注： 编译过程可能遇到链接不到maven的问题, 将maven { url ‘<a href="https://maven.google.com" target="_blank" rel="external">https://maven.google.com</a>‘ } 换成 maven { url “<a href="https://dl.google.com/dl/android/maven2/&quot;}" target="_blank" rel="external">https://dl.google.com/dl/android/maven2/&quot;}</a> 便可</p>
 </blockquote>
 <ul>
 <li>app的build.gradle添加如下依赖库</li>
