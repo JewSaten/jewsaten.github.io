@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="gradle,no active tasks," />
 
 
 
@@ -108,16 +108,23 @@
 
 
 
-<meta name="description" content="今天越安逸，明天越危险">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JewSaten&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/职场漫谈/index.html">
+<meta name="description" content="问题描述github下载的一个Demo，之后各项都配置好编译通过，AS底部的gradle进度一直在跑着，关也关不了，重启AS无效。 界面如下  点进去不是显示在执行的tasks，而是there are no active background tasks。  解决 打开终端命令行  输入gradlew –stop   结束正在执行的任务。     重新Rebuild the project   若">
+<meta name="keywords" content="gradle,no active tasks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决Gradle编译进度一直显示的问题">
+<meta property="og:url" content="http://yoursite.com/2017/08/16/gradle-no-active-tasks/index.html">
 <meta property="og:site_name" content="JewSaten&#39;s Blog">
-<meta property="og:description" content="今天越安逸，明天越危险">
+<meta property="og:description" content="问题描述github下载的一个Demo，之后各项都配置好编译通过，AS底部的gradle进度一直在跑着，关也关不了，重启AS无效。 界面如下  点进去不是显示在执行的tasks，而是there are no active background tasks。  解决 打开终端命令行  输入gradlew –stop   结束正在执行的任务。     重新Rebuild the project   若">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/upload_image/gradle-task-1.png">
+<meta property="og:image" content="http://yoursite.com/upload_image/gradle-task-2.png">
+<meta property="og:image" content="http://yoursite.com/upload_image/gradle-task-3.png">
+<meta property="og:image" content="http://yoursite.com/upload_image/gradle-task-4.png">
+<meta property="og:updated_time" content="2017-08-16T08:14:27.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JewSaten&#39;s Blog">
-<meta name="twitter:description" content="今天越安逸，明天越危险">
+<meta name="twitter:title" content="解决Gradle编译进度一直显示的问题">
+<meta name="twitter:description" content="问题描述github下载的一个Demo，之后各项都配置好编译通过，AS底部的gradle进度一直在跑着，关也关不了，重启AS无效。 界面如下  点进去不是显示在执行的tasks，而是there are no active background tasks。  解决 打开终端命令行  输入gradlew –stop   结束正在执行的任务。     重新Rebuild the project   若">
+<meta name="twitter:image" content="http://yoursite.com/upload_image/gradle-task-1.png">
 
 
 
@@ -145,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/职场漫谈/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/16/gradle-no-active-tasks/"/>
 
 
 
 
 
-  <title>标签: 职场漫谈 | JewSaten's Blog</title>
+  <title>解决Gradle编译进度一直显示的问题 | JewSaten's Blog</title>
   
 
 
@@ -176,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,72 +287,218 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>职场漫谈<small>标签</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/11/弱者思维/" itemprop="url">
-              
-                <span itemprop="name">请警惕你的 “弱者思维”</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-11T15:24:21+08:00"
-              content="2017-08-11" >
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/10/三十而立否？/" itemprop="url">
-              
-                <span itemprop="name">做好 3 件事，不怕三十不立</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-10T16:11:14+08:00"
-              content="2017-08-10" >
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/16/gradle-no-active-tasks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JewSaten">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JewSaten's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">解决Gradle编译进度一直显示的问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-16T15:39:20+08:00">
+                2017-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读 <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>github下载的一个Demo，之后各项都配置好编译通过，AS底部的gradle进度一直在跑着，关也关不了，重启AS无效。</p>
+<p>界面如下</p>
+<p><img src="/upload_image/gradle-task-1.png" alt=""></p>
+<p>点进去不是显示在执行的tasks，而是there are no active background tasks。</p>
+<p><img src="/upload_image/gradle-task-2.png" alt=""></p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ul>
+<li>打开终端命令行  输入gradlew –stop</li>
+</ul>
+<blockquote>
+<p>结束正在执行的任务。</p>
+</blockquote>
+<p><img src="/upload_image/gradle-task-3.png" alt=""></p>
+<p><img src="/upload_image/gradle-task-4.png" alt=""></p>
+<ul>
+<li>重新Rebuild the project</li>
+</ul>
+<blockquote>
+<p>若无效，可尝试关闭当前project重新打开。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="JewSaten WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="JewSaten Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gradle/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> gradle</a>
+          
+            <a href="/tags/no-active-tasks/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> no active tasks</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/11/弱者思维/" rel="next" title="请警惕你的 “弱者思维”">
+                <i class="fa fa-chevron-left"></i> 请警惕你的 “弱者思维”
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -353,6 +506,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTg5My82NDU4"></div>
+    
+  </div>
+
 
         </div>
         
@@ -373,8 +532,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -461,6 +629,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -579,10 +763,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
