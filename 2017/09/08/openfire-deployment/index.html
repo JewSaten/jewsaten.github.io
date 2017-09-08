@@ -108,20 +108,24 @@
 
 
 
-<meta name="description" content="Openfire+Smack搭建IM通讯的Android实现, 其实早在N年前就已经干过这事，现如今又重新拿起来整理并记录下来。 XMPP协议全称（Extensible Messaging and PresenceProtocol，可扩展消息处理现场协议）是一种基于XML的协议，定义了所有即时通信协议应该支持的核心功能集，其目的是为了解决即时通讯标准提出来的，最早是在Jabber上实现的。 准备工">
+<meta name="description" content="Openfire+Smack搭建IM通讯的Android实现， 其实早在N年前就已经干过这事，现如今又重新拿起来整理并记录下来。 XMPP协议全称（Extensible Messaging and PresenceProtocol，可扩展消息处理现场协议）是一种基于XML的协议，定义了所有即时通信协议应该支持的核心功能集，其目的是为了解决即时通讯标准提出来的，最早是在Jabber上实现的。  准备">
 <meta name="keywords" content="xmpp,smack,openfire">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android即时聊天之openfire部署">
 <meta property="og:url" content="http://yoursite.com/2017/09/08/openfire-deployment/index.html">
 <meta property="og:site_name" content="JEW SATEN">
-<meta property="og:description" content="Openfire+Smack搭建IM通讯的Android实现, 其实早在N年前就已经干过这事，现如今又重新拿起来整理并记录下来。 XMPP协议全称（Extensible Messaging and PresenceProtocol，可扩展消息处理现场协议）是一种基于XML的协议，定义了所有即时通信协议应该支持的核心功能集，其目的是为了解决即时通讯标准提出来的，最早是在Jabber上实现的。 准备工">
+<meta property="og:description" content="Openfire+Smack搭建IM通讯的Android实现， 其实早在N年前就已经干过这事，现如今又重新拿起来整理并记录下来。 XMPP协议全称（Extensible Messaging and PresenceProtocol，可扩展消息处理现场协议）是一种基于XML的协议，定义了所有即时通信协议应该支持的核心功能集，其目的是为了解决即时通讯标准提出来的，最早是在Jabber上实现的。  准备">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/upload_image/xmpp4.png">
 <meta property="og:image" content="http://yoursite.com/upload_image/xmpp0.png">
-<meta property="og:updated_time" content="2017-09-08T08:41:17.889Z">
+<meta property="og:image" content="http://yoursite.com/upload_image/xmpp1.png">
+<meta property="og:image" content="http://yoursite.com/upload_image/xmpp2.png">
+<meta property="og:image" content="http://yoursite.com/upload_image/xmpp3.png">
+<meta property="og:updated_time" content="2017-09-08T09:34:56.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android即时聊天之openfire部署">
-<meta name="twitter:description" content="Openfire+Smack搭建IM通讯的Android实现, 其实早在N年前就已经干过这事，现如今又重新拿起来整理并记录下来。 XMPP协议全称（Extensible Messaging and PresenceProtocol，可扩展消息处理现场协议）是一种基于XML的协议，定义了所有即时通信协议应该支持的核心功能集，其目的是为了解决即时通讯标准提出来的，最早是在Jabber上实现的。 准备工">
-<meta name="twitter:image" content="http://yoursite.com/upload_image/xmpp0.png">
+<meta name="twitter:description" content="Openfire+Smack搭建IM通讯的Android实现， 其实早在N年前就已经干过这事，现如今又重新拿起来整理并记录下来。 XMPP协议全称（Extensible Messaging and PresenceProtocol，可扩展消息处理现场协议）是一种基于XML的协议，定义了所有即时通信协议应该支持的核心功能集，其目的是为了解决即时通讯标准提出来的，最早是在Jabber上实现的。  准备">
+<meta name="twitter:image" content="http://yoursite.com/upload_image/xmpp4.png">
 
 
 
@@ -385,12 +389,29 @@
       
 
       
-        <p>Openfire+Smack搭建IM通讯的Android实现, 其实早在N年前就已经干过这事，现如今又重新拿起来整理并记录下来。</p>
+        <p>Openfire+Smack搭建IM通讯的Android实现， 其实早在N年前就已经干过这事，现如今又重新拿起来整理并记录下来。</p>
 <h3 id="XMPP协议"><a href="#XMPP协议" class="headerlink" title="XMPP协议"></a>XMPP协议</h3><p>全称（Extensible Messaging and PresenceProtocol，可扩展消息处理现场协议）是一种基于XML的协议，定义了所有即时通信协议应该支持的核心功能集，其目的是为了解决即时通讯标准提出来的，最早是在Jabber上实现的。</p>
+<p><img src="/upload_image/xmpp4.png" alt=""></p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
 <li>下载安装<a href="http://www.igniterealtime.org/downloads/index.jsp" target="_blank" rel="external">Openfire</a></li>
 </ul>
 <p><img src="/upload_image/xmpp0.png" alt=""></p>
+<ul>
+<li>安装MySQL并附带一个可视化管理工具（SQLyog 或 Navicat）</li>
+</ul>
+<blockquote>
+<p>重要的一步，数据库创建以及SQL脚本导入</p>
+</blockquote>
+<ol>
+<li>创建一个名为 “chat” 的数据库（配置数据库连接url时会用到）</li>
+<li>导入之前一步openfire安装目录下Openfire\resources\database\openfire_mysql.sql 脚本文件</li>
+</ol>
+<p><img src="/upload_image/xmpp1.png" alt=""></p>
+<p>成功导入之后可以在SQLyog添加用户也可以在Openfire后台管理界面新建用户</p>
+<p><img src="/upload_image/xmpp2.png" alt=""></p>
+<p><img src="/upload_image/xmpp3.png" alt=""></p>
+<p>这些步骤都完了之后接下来就是Openfire的配置，具体请参考<a href="http://www.cnblogs.com/jerehedu/p/4359316.html" target="_blank" rel="external">Openfire服务器和Spark客户端配置</a></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>下一篇会通过Smack API完成一个Android小案例</p>
 
       
     </div>
@@ -625,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#XMPP协议"><span class="nav-number">1.</span> <span class="nav-text">XMPP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#XMPP协议"><span class="nav-number">1.</span> <span class="nav-text">XMPP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
             
 
           </div>
