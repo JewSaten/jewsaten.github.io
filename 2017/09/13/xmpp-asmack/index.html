@@ -108,20 +108,20 @@
 
 
 
-<meta name="description" content="在前一篇我们将服务器配置好并本地部署了，提及到的Spark是Smack API实现的PC客户端，界面老土不过该有的也都有，功能是比较完整的了。  官网Smack 4.1.x之后已支持android，不再是使用asmack的旧实现，开发者可以在这基础上有更多的定制化的开发。  创建连接并登录准备asmack.jar添加到项目的libs目录 12345678try &amp;#123;         //">
+<meta name="description" content="在前一篇我们将服务器配置好并本地部署了，提及到的Spark是Smack API实现的PC客户端，界面老土不过该有的也都有，功能是比较完整的了。  官网Smack 4.1.x之后已支持android，不再是使用asmack的旧实现，开发者可以在这基础上有更多的定制化的开发。  创建连接并登录准备asmack.jar添加到项目的libs目录 1234567try &amp;#123;         // 登">
 <meta name="keywords" content="xmpp,smack,openfire">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android即时聊天之Smack API Example">
 <meta property="og:url" content="http://yoursite.com/2017/09/13/xmpp-asmack/index.html">
 <meta property="og:site_name" content="JEW SATEN">
-<meta property="og:description" content="在前一篇我们将服务器配置好并本地部署了，提及到的Spark是Smack API实现的PC客户端，界面老土不过该有的也都有，功能是比较完整的了。  官网Smack 4.1.x之后已支持android，不再是使用asmack的旧实现，开发者可以在这基础上有更多的定制化的开发。  创建连接并登录准备asmack.jar添加到项目的libs目录 12345678try &amp;#123;         //">
+<meta property="og:description" content="在前一篇我们将服务器配置好并本地部署了，提及到的Spark是Smack API实现的PC客户端，界面老土不过该有的也都有，功能是比较完整的了。  官网Smack 4.1.x之后已支持android，不再是使用asmack的旧实现，开发者可以在这基础上有更多的定制化的开发。  创建连接并登录准备asmack.jar添加到项目的libs目录 1234567try &amp;#123;         // 登">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/upload_image/IM01.png">
 <meta property="og:image" content="http://yoursite.com/upload_image/IM02.png">
-<meta property="og:updated_time" content="2017-09-13T09:38:56.931Z">
+<meta property="og:updated_time" content="2017-09-13T09:40:01.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android即时聊天之Smack API Example">
-<meta name="twitter:description" content="在前一篇我们将服务器配置好并本地部署了，提及到的Spark是Smack API实现的PC客户端，界面老土不过该有的也都有，功能是比较完整的了。  官网Smack 4.1.x之后已支持android，不再是使用asmack的旧实现，开发者可以在这基础上有更多的定制化的开发。  创建连接并登录准备asmack.jar添加到项目的libs目录 12345678try &amp;#123;         //">
+<meta name="twitter:description" content="在前一篇我们将服务器配置好并本地部署了，提及到的Spark是Smack API实现的PC客户端，界面老土不过该有的也都有，功能是比较完整的了。  官网Smack 4.1.x之后已支持android，不再是使用asmack的旧实现，开发者可以在这基础上有更多的定制化的开发。  创建连接并登录准备asmack.jar添加到项目的libs目录 1234567try &amp;#123;         // 登">
 <meta name="twitter:image" content="http://yoursite.com/upload_image/IM01.png">
 
 
@@ -391,7 +391,7 @@
 <p><a href="http://www.igniterealtime.org/projects/smack/" target="_blank" rel="external">官网</a><strong>Smack 4.1.x</strong>之后已支持android，不再是使用asmack的旧实现，开发者可以在这基础上有更多的定制化的开发。</p>
 </blockquote>
 <h3 id="创建连接并登录"><a href="#创建连接并登录" class="headerlink" title="创建连接并登录"></a>创建连接并登录</h3><p>准备asmack.jar添加到项目的libs目录</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">         <span class="comment">// 登录</span></div><div class="line">         ConnectionConfiguration connectionConfig = <span class="keyword">new</span> <span class="type">ConnectionConfiguration</span>(</div><div class="line">                 <span class="string">"your ip address"</span>, <span class="number">5222</span>);</div><div class="line">         XMPPConnection connection = <span class="keyword">new</span> <span class="type">XMPPConnection</span>(connectionConfig);</div><div class="line">         connection.connect();</div><div class="line">         connection.login(username, password);</div></pre></td></tr></table></figure>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">         <span class="comment">// 登录</span></div><div class="line">         ConnectionConfiguration connectionConfig = <span class="keyword">new</span> <span class="type">ConnectionConfiguration</span>(<span class="string">"your ip address"</span>, <span class="number">5222</span>);</div><div class="line">         XMPPConnection connection = <span class="keyword">new</span> <span class="type">XMPPConnection</span>(connectionConfig);</div><div class="line">         connection.connect();</div><div class="line">         connection.login(username, password);</div></pre></td></tr></table></figure>
 <ul>
 <li>启动服务</li>
 </ul>
