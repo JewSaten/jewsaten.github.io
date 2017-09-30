@@ -108,18 +108,18 @@
 
 
 
-<meta name="description" content="静态注册这是很多例子用的最多，也是最为常见的一种方式。  原理 根据声明的java本地方法生成的头文件规则，通过函数名的对应关系来达到   java声明： 123456789101112package io.jewsaten.opencvsamples;/** * Created by Administrator on 2017/9/19. */public class OpenCVUtil &amp;#">
+<meta name="description" content="基本数据类型对照表   Java类型 C语言类型 JNI对应的类型     int long jint   long _int64 jlong   byte signed char jbyte   boolean unsigned char jboolean   char unsigned short jchar   short short jshort   float float jfloat">
 <meta name="keywords" content="ndk,jni,opencv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JNI的两种注册方式比较">
 <meta property="og:url" content="http://yoursite.com/2017/09/25/jni-simple/index.html">
 <meta property="og:site_name" content="JEW SATEN">
-<meta property="og:description" content="静态注册这是很多例子用的最多，也是最为常见的一种方式。  原理 根据声明的java本地方法生成的头文件规则，通过函数名的对应关系来达到   java声明： 123456789101112package io.jewsaten.opencvsamples;/** * Created by Administrator on 2017/9/19. */public class OpenCVUtil &amp;#">
+<meta property="og:description" content="基本数据类型对照表   Java类型 C语言类型 JNI对应的类型     int long jint   long _int64 jlong   byte signed char jbyte   boolean unsigned char jboolean   char unsigned short jchar   short short jshort   float float jfloat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T06:13:07.152Z">
+<meta property="og:updated_time" content="2017-09-30T09:11:23.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI的两种注册方式比较">
-<meta name="twitter:description" content="静态注册这是很多例子用的最多，也是最为常见的一种方式。  原理 根据声明的java本地方法生成的头文件规则，通过函数名的对应关系来达到   java声明： 123456789101112package io.jewsaten.opencvsamples;/** * Created by Administrator on 2017/9/19. */public class OpenCVUtil &amp;#">
+<meta name="twitter:description" content="基本数据类型对照表   Java类型 C语言类型 JNI对应的类型     int long jint   long _int64 jlong   byte signed char jbyte   boolean unsigned char jboolean   char unsigned short jchar   short short jshort   float float jfloat">
 
 
 
@@ -383,7 +383,58 @@
       
 
       
-        <h3 id="静态注册"><a href="#静态注册" class="headerlink" title="静态注册"></a>静态注册</h3><p>这是很多例子用的最多，也是最为常见的一种方式。</p>
+        <h3 id="基本数据类型对照表"><a href="#基本数据类型对照表" class="headerlink" title="基本数据类型对照表"></a>基本数据类型对照表</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Java类型</th>
+<th style="text-align:center">C语言类型</th>
+<th style="text-align:center">JNI对应的类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">long</td>
+<td style="text-align:center">jint</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">_int64</td>
+<td style="text-align:center">jlong</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">signed char</td>
+<td style="text-align:center">jbyte</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">unsigned char</td>
+<td style="text-align:center">jboolean</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">unsigned short</td>
+<td style="text-align:center">jchar</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">short</td>
+<td style="text-align:center">jshort</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">jfloat</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">jdouble</td>
+</tr>
+</tbody>
+</table>
+<h3 id="静态注册"><a href="#静态注册" class="headerlink" title="静态注册"></a>静态注册</h3><p>这是很多例子用的最多，也是最为常见的一种方式。</p>
 <ul>
 <li><p>原理</p>
 <p>根据声明的java本地方法生成的头文件规则，通过函数名的对应关系来达到</p>
@@ -661,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态注册"><span class="nav-number">1.</span> <span class="nav-text">静态注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态注册"><span class="nav-number">2.</span> <span class="nav-text">动态注册</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型对照表"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型对照表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态注册"><span class="nav-number">2.</span> <span class="nav-text">静态注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态注册"><span class="nav-number">3.</span> <span class="nav-text">动态注册</span></a></li></ol></div>
             
 
           </div>
