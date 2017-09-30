@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="JEW SATEN">
 <meta property="og:description" content="静态注册这是很多例子用的最多，也是最为常见的一种方式。  原理 根据声明的java本地方法生成的头文件规则，通过函数名的对应关系来达到   java声明： 123456789101112package io.jewsaten.opencvsamples;/** * Created by Administrator on 2017/9/19. */public class OpenCVUtil &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-25T10:30:40.405Z">
+<meta property="og:updated_time" content="2017-09-30T06:13:07.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI的两种注册方式比较">
 <meta name="twitter:description" content="静态注册这是很多例子用的最多，也是最为常见的一种方式。  原理 根据声明的java本地方法生成的头文件规则，通过函数名的对应关系来达到   java声明： 123456789101112package io.jewsaten.opencvsamples;/** * Created by Administrator on 2017/9/19. */public class OpenCVUtil &amp;#">
@@ -399,6 +399,7 @@
 <p>(1). 如果有文件位置改动，文件名，函数名的改动的话，后期就比较麻烦</p>
 <p>(2). 函数名长度过长，可读性差，不便维护</p>
 <h3 id="动态注册"><a href="#动态注册" class="headerlink" title="动态注册"></a>动态注册</h3><p> 前面一种方式或许只是局限在demo层面，而后一种实现方式则更多的用到实际项目中</p>
+<p> Java调用本地函数，一般是透过VM去so文件查找相应的本地函数，如果需要连续调用多次，每次都需要查找一遍，这将是相当花时间的； 这时候开发者就可以自行借助JNI_Onload函数动态注册本地函数</p>
 <ul>
 <li><p>原理 </p>
 <p>告诉JVM native函数在JNI中对应的函数指针，支持函数名自定义</p>
@@ -410,7 +411,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">static</span> JNINativeMethod gMethods[] = &#123;</div><div class="line">   &#123;<span class="string">"gray"</span>, <span class="string">"([III)[I"</span>, (<span class="keyword">void</span>*)gray&#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//这里的函数名已经不再是Java_包名_类名_方法名，可以是任意有意义的命名</span></div><div class="line"><span class="function">JNIEXPORT jintArray JNICALL <span class="title">gray</span><span class="params">(JNIEnv *env, jclass clazz, jintArray buf, jint w, jint h)</span></span>;</div></pre></td></tr></table></figure>
 <ul>
 <li><p>最后</p>
-<p>JVM回调JNI_OnLoad进行注册</p>
+<p>当你调用System.loadLibrary, VM首先执行到JNI_OnLoad，动态方式藉由此方法告知VM我们要注册的一系列本地函数，以及一些初始化操作，以便后续加快调用本地函数的效率</p>
 </li>
 </ul>
 <p><a href="https://github.com/JewSaten/OpenCVSamples" target="_blank" rel="external">点我下载代码示例</a></p>
