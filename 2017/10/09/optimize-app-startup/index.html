@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ndk,jni,opencv," />
+  <meta name="keywords" content="用户体验,优化," />
 
 
 
@@ -108,18 +108,20 @@
 
 
 
-<meta name="description" content="基本数据类型对照表   Java类型 C语言类型 JNI对应的类型     int long jint   long _int64 jlong   byte signed char jbyte   boolean unsigned char jboolean   char unsigned short jchar   short short jshort   float float jfloat">
-<meta name="keywords" content="ndk,jni,opencv">
+<meta name="description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
+<meta name="keywords" content="用户体验,优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JNI的两种注册方式比较">
-<meta property="og:url" content="http://yoursite.com/2017/09/25/jni-simple/index.html">
+<meta property="og:title" content="app启动那些事">
+<meta property="og:url" content="http://yoursite.com/2017/10/09/optimize-app-startup/index.html">
 <meta property="og:site_name" content="JEW SATEN">
-<meta property="og:description" content="基本数据类型对照表   Java类型 C语言类型 JNI对应的类型     int long jint   long _int64 jlong   byte signed char jbyte   boolean unsigned char jboolean   char unsigned short jchar   short short jshort   float float jfloat">
+<meta property="og:description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T09:13:04.342Z">
+<meta property="og:image" content="http://yoursite.com/upload_image/cold-launch.png">
+<meta property="og:updated_time" content="2017-10-10T09:35:34.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JNI的两种注册方式比较">
-<meta name="twitter:description" content="基本数据类型对照表   Java类型 C语言类型 JNI对应的类型     int long jint   long _int64 jlong   byte signed char jbyte   boolean unsigned char jboolean   char unsigned short jchar   short short jshort   float float jfloat">
+<meta name="twitter:title" content="app启动那些事">
+<meta name="twitter:description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
+<meta name="twitter:image" content="http://yoursite.com/upload_image/cold-launch.png">
 
 
 
@@ -147,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/25/jni-simple/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/09/optimize-app-startup/"/>
 
 
 
 
 
-  <title>JNI的两种注册方式比较 | JEW SATEN</title>
+  <title>app启动那些事 | JEW SATEN</title>
   
 
 
@@ -292,7 +294,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/jni-simple/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/optimize-app-startup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JEW SATEN">
@@ -309,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JNI的两种注册方式比较</h1>
+          <h1 class="post-title" itemprop="name headline">app启动那些事</h1>
         
 
         <div class="post-meta">
@@ -321,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T17:02:21+08:00">
-                2017-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T11:39:28+08:00">
+                2017-10-09
               </time>
             
 
@@ -383,89 +385,34 @@
       
 
       
-        <h3 id="基本数据类型对照表"><a href="#基本数据类型对照表" class="headerlink" title="基本数据类型对照表"></a>基本数据类型对照表</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">Java类型</th>
-<th style="text-align:center">C语言类型</th>
-<th style="text-align:center">JNI对应的类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">long</td>
-<td style="text-align:center">jint</td>
-</tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">_int64</td>
-<td style="text-align:center">jlong</td>
-</tr>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">signed char</td>
-<td style="text-align:center">jbyte</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">unsigned char</td>
-<td style="text-align:center">jboolean</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">unsigned short</td>
-<td style="text-align:center">jchar</td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center">short</td>
-<td style="text-align:center">jshort</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">float</td>
-<td style="text-align:center">jfloat</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">double</td>
-<td style="text-align:center">jdouble</td>
-</tr>
-</tbody>
-</table>
-<h3 id="静态注册"><a href="#静态注册" class="headerlink" title="静态注册"></a>静态注册</h3><p>这是很多例子用的最多，也是最为常见的一种方式。</p>
-<ul>
-<li><p>原理</p>
-<p>根据声明的java本地方法生成的头文件规则，通过函数名的对应关系来达到</p>
+        <p>一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 <strong>白屏</strong>或<strong>黑屏</strong> 再到启动页面，再者是在 <strong>桌面短时间的停留</strong> 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。 </p>
+<p>那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。</p>
+<h3 id="启动过程的内部机制"><a href="#启动过程的内部机制" class="headerlink" title="启动过程的内部机制"></a>启动过程的内部机制</h3><ul>
+<li><p>ColdStart</p>
+<p>  进程被系统杀掉或者第一次启动发生的状态</p>
+</li>
+<li><p>WarmStart </p>
+<p>  app驻留在内存，所以系统所做的只是把app从后台带到前台, 免去了重复的对象初始化以及布局渲染等的操作，其表现形式跟ColdStart一样，也是一开始呈现一个空白页面直到app完成渲染让用户所看到</p>
+</li>
+<li><p>LukeWarm Start</p>
+<p>  可以认为是ColdStart操作中的子集，系统所做的同样只是把app从后台带到前台，只不过较WarmStart来说开销小点。 比如用户主动退出程序随后又立即启动它。</p>
 </li>
 </ul>
-<p><strong>java声明</strong>：</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">package io.jewsaten.opencvsamples;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Administrator on 2017/9/19.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">OpenCVUtil</span> &#123;</div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.loadLibrary(<span class="string">"OpenCV"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> native <span class="keyword">int</span>[] <span class="title">gray</span>(<span class="params"><span class="keyword">int</span>[] pixel, <span class="keyword">int</span> w, <span class="keyword">int</span> h</span>)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>jni生成的头文件声明</strong>：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* DO NOT EDIT THIS FILE - it is machine generated */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></div><div class="line"><span class="comment">/* Header for class io_jewsaten_opencvsamples_OpenCVUtil */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _Included_io_jewsaten_opencvsamples_OpenCVUtil</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> _Included_io_jewsaten_opencvsamples_OpenCVUtil</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="comment">/*</span></div><div class="line"> * Class:     io_jewsaten_opencvsamples_OpenCVUtil</div><div class="line"> * Method:    gray</div><div class="line"> * Signature: ([III)[I</div><div class="line"> */</div><div class="line"><span class="function">JNIEXPORT jintArray JNICALL <span class="title">Java_io_jewsaten_opencvsamples_OpenCVUtil_gray</span></span></div><div class="line">  <span class="params">(JNIEnv *, jclass, jintArray, jint, jint)</span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
-<ul>
-<li>结论 </li>
-</ul>
-<p>(1). 如果有文件位置改动，文件名，函数名的改动的话，后期就比较麻烦</p>
-<p>(2). 函数名长度过长，可读性差，不便维护</p>
-<h3 id="动态注册"><a href="#动态注册" class="headerlink" title="动态注册"></a>动态注册</h3><p> 前面一种方式或许只是局限在demo层面，而后一种实现方式则更多的用到实际项目中</p>
-<p> Java调用本地函数，一般是透过VM去so文件查找相应的本地函数，如果需要连续调用多次，每次都需要查找一遍，这将是相当花时间的； 这时候开发者就可以自行借助JNI_Onload函数动态注册本地函数</p>
-<ul>
-<li><p>原理 </p>
-<p>告诉JVM native函数在JNI中对应的函数指针，支持函数名自定义</p>
+<p>app的启动可以是这三种状态中的一种，但是对于ColdStart来说，所要做的工作比其他两种状态要多；</p>
+<p>处于ColdStart状态的一开始系统会立即渲染一个启动背景窗口紧接着才会去创建app进程, 经过一系列的对象创建，视图绘制，渲染之后把这个背景窗口替换成为你app的主活动视图(应用程序的入口类)，然后你才能开始使用app。</p>
+<p><img src="/upload_image/cold-launch.png" alt=""></p>
+<h3 id="优化建议"><a href="#优化建议" class="headerlink" title="优化建议"></a>优化建议</h3><p>1.避免在Application和MainActivity的onCreate方法做过多繁重的初始化操作</p>
+<pre><code>很多依赖的三方sdk可以根据优先级，使用多线程、懒加载的方式，只加载当前立即需要用的，非必要的延后再操作
+</code></pre><ol>
+<li><p>使用主题启动屏幕</p>
+<p> 上面提到的 <strong>白屏</strong>或<strong>黑屏</strong> 正是ColdStart状态下一开始渲染的启动背景窗口 ，至于有时候白色或黑色取决于你主题的设置。</p>
+<p> 使用主题的Activity应该是一个闪屏页，不具有按钮事件，其他控件的交互行为，仅仅只是一个宣传页/logo页，应用必要的一些初始化操作。</p>
+ <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//为你的MainActivity设置主题添加如下</div><div class="line"></div><div class="line">&lt;<span class="keyword">item</span> name=<span class="string">"android:windowNoTitle"</span>&gt;<span class="literal">true</span>&lt;/<span class="keyword">item</span>&gt;</div><div class="line">   &lt;<span class="keyword">item</span> name=<span class="string">"android:windowIsTranslucent"</span>&gt;<span class="literal">true</span>&lt;/<span class="keyword">item</span>&gt;</div><div class="line">   &lt;<span class="keyword">item</span> name=<span class="string">"android:windowContentOverlay"</span>&gt;@<span class="literal">null</span>&lt;/<span class="keyword">item</span>&gt;</div></pre></td></tr></table></figure>
+<p> 你会发觉没有这个 <strong>白屏</strong>或<strong>黑屏</strong> 出现了，但是你去打开应用出现 <strong>桌面短时间的停留</strong> </p>
+<p> 最后的解决办法是设置闪屏页的windowBackground背景图: </p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//为你的MainActivity设置主题添加如下</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"app_theme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">   </div><div class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/launch_bg<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowFullscreen"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">   </div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过这个结构体建立对应关系</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* name; <span class="comment">//Java中函数的名字</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* signature;<span class="comment">//签名，描述了函数的参数和返回值</span></div><div class="line"></div><div class="line"><span class="keyword">void</span>* fnPtr;<span class="comment">//函数指针，对应的jni函数</span></div><div class="line"></div><div class="line">&#125; JNINativeMethod;</div></pre></td></tr></table></figure>
-<p><strong> 函数映射表 </strong></p>
-<p>在这里声明各个函数间的对应关系</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">static</span> JNINativeMethod gMethods[] = &#123;</div><div class="line">   &#123;<span class="string">"gray"</span>, <span class="string">"([III)[I"</span>, (<span class="keyword">void</span>*)gray&#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//这里的函数名已经不再是Java_包名_类名_方法名，可以是任意有意义的命名</span></div><div class="line"><span class="function">JNIEXPORT jintArray JNICALL <span class="title">gray</span><span class="params">(JNIEnv *env, jclass clazz, jintArray buf, jint w, jint h)</span></span>;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>最后</p>
-<p>当你调用System.loadLibrary, VM首先执行到JNI_OnLoad，动态方式藉由此方法告知VM我们要注册的一系列本地函数，以及一些初始化操作，以便后续加快调用本地函数的效率</p>
-</li>
-</ul>
-<p><a href="https://github.com/JewSaten/OpenCVSamples" target="_blank" rel="external">点我下载代码示例</a></p>
+</ol>
 
       
     </div>
@@ -518,11 +465,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ndk/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> ndk</a>
+            <a href="/tags/用户体验/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 用户体验</a>
           
-            <a href="/tags/jni/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> jni</a>
-          
-            <a href="/tags/opencv/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> opencv</a>
+            <a href="/tags/优化/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 优化</a>
           
         </div>
       
@@ -535,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/13/xmpp-asmack/" rel="next" title="Android即时聊天之Smack API Example">
-                <i class="fa fa-chevron-left"></i> Android即时聊天之Smack API Example
+              <a href="/2017/09/25/jni-simple/" rel="next" title="JNI的两种注册方式比较">
+                <i class="fa fa-chevron-left"></i> JNI的两种注册方式比较
               </a>
             
           </div>
@@ -544,10 +489,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/09/optimize-app-startup/" rel="prev" title="app启动那些事">
-                app启动那些事 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -716,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型对照表"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型对照表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态注册"><span class="nav-number">2.</span> <span class="nav-text">静态注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态注册"><span class="nav-number">3.</span> <span class="nav-text">动态注册</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动过程的内部机制"><span class="nav-number">1.</span> <span class="nav-text">启动过程的内部机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化建议"><span class="nav-number">2.</span> <span class="nav-text">优化建议</span></a></li></ol></div>
             
 
           </div>
