@@ -117,7 +117,7 @@
 <meta property="og:description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/upload_image/cold-launch.png">
-<meta property="og:updated_time" content="2017-10-11T03:00:34.031Z">
+<meta property="og:updated_time" content="2017-10-11T03:02:47.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="app启动那些事">
 <meta name="twitter:description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
@@ -402,20 +402,18 @@
 <p>处于ColdStart状态的一开始系统会立即渲染一个启动背景窗口紧接着才会去创建app进程, 经过一系列的对象创建，视图绘制，渲染之后把这个背景窗口替换成为你app的主活动视图(应用程序的入口类)，然后你才能开始使用app。</p>
 <p><img src="/upload_image/cold-launch.png" alt=""></p>
 <h3 id="优化建议"><a href="#优化建议" class="headerlink" title="优化建议"></a>优化建议</h3><ul>
-<li><p>1.避免在Application和MainActivity的onCreate方法做过多繁重的初始化操作</p>
-<p>  很多依赖的三方sdk可以根据优先级，使用多线程、懒加载的方式，只加载当前立即需要用的，非必要的延后再操作</p>
-</li>
+<li>1.避免在Application和MainActivity的onCreate方法做过多繁重的初始化操作</li>
 </ul>
+<p>很多依赖的三方sdk可以根据优先级，使用多线程、懒加载的方式，只加载当前立即需要用的，非必要的延后再操作</p>
 <ul>
-<li><p>2.使用主题启动屏幕</p>
-<p>  上面提到的 <strong>白屏</strong>或<strong>黑屏</strong> 正是ColdStart状态下一开始渲染的启动背景窗口 ，至于有时候白色或黑色取决于你主题的设置。</p>
-<p>  使用主题的Activity应该是一个闪屏页，不具有按钮事件，其他控件的交互行为，仅仅只是一个宣传页/logo页，应用必要的一些初始化操作。</p>
-  <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//为你的MainActivity设置主题添加如下</div><div class="line"></div><div class="line">&lt;<span class="keyword">item</span> name=<span class="string">"android:windowNoTitle"</span>&gt;<span class="literal">true</span>&lt;/<span class="keyword">item</span>&gt;</div><div class="line">   &lt;<span class="keyword">item</span> name=<span class="string">"android:windowIsTranslucent"</span>&gt;<span class="literal">true</span>&lt;/<span class="keyword">item</span>&gt;</div><div class="line">   &lt;<span class="keyword">item</span> name=<span class="string">"android:windowContentOverlay"</span>&gt;@<span class="literal">null</span>&lt;/<span class="keyword">item</span>&gt;</div></pre></td></tr></table></figure>
-<p>  你会发觉没有这个 <strong>白屏</strong>或<strong>黑屏</strong> 出现了，但是你去打开应用出现 <strong>桌面短时间的停留</strong> </p>
-<p>  最后的解决办法是设置闪屏页的windowBackground背景图: </p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//为你的MainActivity设置主题添加如下</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"app_theme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">   </div><div class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/launch_bg<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowFullscreen"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">   </div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
+<li>2.使用主题启动屏幕</li>
 </ul>
+<p>上面提到的 <strong>白屏</strong>或<strong>黑屏</strong> 正是ColdStart状态下一开始渲染的启动背景窗口 ，至于有时候白色或黑色取决于你主题的设置。</p>
+<p>使用主题的Activity应该是一个闪屏页，不具有按钮事件，其他控件的交互行为，仅仅只是一个宣传页/logo页，应用必要的一些初始化操作。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//为你的MainActivity设置主题添加如下</div><div class="line">	</div><div class="line">&lt;<span class="keyword">item</span> name=<span class="string">"android:windowNoTitle"</span>&gt;<span class="literal">true</span>&lt;/<span class="keyword">item</span>&gt;</div><div class="line">&lt;<span class="keyword">item</span> name=<span class="string">"android:windowIsTranslucent"</span>&gt;<span class="literal">true</span>&lt;/<span class="keyword">item</span>&gt;</div><div class="line">&lt;<span class="keyword">item</span> name=<span class="string">"android:windowContentOverlay"</span>&gt;@<span class="literal">null</span>&lt;/<span class="keyword">item</span>&gt;</div></pre></td></tr></table></figure>
+<p>你会发觉没有这个 <strong>白屏</strong>或<strong>黑屏</strong> 出现了，但是你去打开应用出现 <strong>桌面短时间的停留</strong> </p>
+<p>最后的解决办法是设置闪屏页的windowBackground背景图: </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">//为你的MainActivity设置主题添加如下</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"app_theme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    </div><div class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@drawable/launch_bg<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowFullscreen"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
 
       
     </div>
