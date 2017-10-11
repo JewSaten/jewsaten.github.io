@@ -117,7 +117,7 @@
 <meta property="og:description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/upload_image/cold-launch.png">
-<meta property="og:updated_time" content="2017-10-11T03:09:39.989Z">
+<meta property="og:updated_time" content="2017-10-11T03:21:23.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="app启动那些事">
 <meta name="twitter:description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
@@ -398,7 +398,7 @@
 <p>  可以认为是ColdStart操作中的子集，系统所做的同样只是把app从后台带到前台，只不过较WarmStart来说开销小点。 比如用户主动退出程序随后又立即启动它。</p>
 </li>
 </ul>
-<p>app的启动可以是这三种状态中的一种，但是对于ColdStart来说，所要做的工作比其他两种状态要多；</p>
+<p>app的启动可以是处于这三种状态中的一种，但是对于ColdStart来说，所要做的工作比其他两种状态要多；</p>
 <p>处于ColdStart状态的一开始系统会立即渲染一个启动背景窗口紧接着才会去创建app进程, 经过一系列的对象创建，视图绘制，渲染之后把这个背景窗口替换成为你app的主活动视图(应用程序的入口类)，然后你才能开始使用app。</p>
 <p><img src="/upload_image/cold-launch.png" alt=""></p>
 <h3 id="优化建议"><a href="#优化建议" class="headerlink" title="优化建议"></a>优化建议</h3><blockquote>
