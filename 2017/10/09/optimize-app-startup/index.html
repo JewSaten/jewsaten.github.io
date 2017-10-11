@@ -117,7 +117,7 @@
 <meta property="og:description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/upload_image/cold-launch.png">
-<meta property="og:updated_time" content="2017-10-11T03:05:02.893Z">
+<meta property="og:updated_time" content="2017-10-11T03:09:39.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="app启动那些事">
 <meta name="twitter:description" content="一般的我们从手机桌面打开一个应用，最为常见的一种情况下是它经历一个短时间的 白屏或黑屏 再到启动页面，再者是在 桌面短时间的停留 随后才到启动页面； 然而，这两者都是要花费些等待时间的(虽然没有很久)，当然也是用户所不愿等而且不期望看到的，从用户感知上最为直接的体验就是要响应快并且加载也快。  那么要如何做到呢？，我们有必要事先了解下程序启动的内部机制。 启动过程的内部机制 ColdStart">
@@ -402,15 +402,11 @@
 <p>处于ColdStart状态的一开始系统会立即渲染一个启动背景窗口紧接着才会去创建app进程, 经过一系列的对象创建，视图绘制，渲染之后把这个背景窗口替换成为你app的主活动视图(应用程序的入口类)，然后你才能开始使用app。</p>
 <p><img src="/upload_image/cold-launch.png" alt=""></p>
 <h3 id="优化建议"><a href="#优化建议" class="headerlink" title="优化建议"></a>优化建议</h3><blockquote>
-<ol>
-<li>避免在Application和MainActivity的onCreate方法做过多繁重的初始化操作</li>
-</ol>
+<p><strong>避免在Application和MainActivity的onCreate方法做过多繁重的初始化操作</strong></p>
 </blockquote>
 <p>很多依赖的三方sdk可以根据优先级，使用多线程、懒加载的方式，只加载当前立即需要用的，非必要的延后再操作</p>
 <blockquote>
-<ol>
-<li>使用主题启动屏幕</li>
-</ol>
+<p><strong>使用主题启动屏幕</strong></p>
 </blockquote>
 <p>上面提到的 <strong>白屏</strong>或<strong>黑屏</strong> 正是ColdStart状态下一开始渲染的启动背景窗口 ，至于有时候白色或黑色取决于你主题的设置。</p>
 <p>使用主题的Activity应该是一个闪屏页，不具有按钮事件，其他控件的交互行为，仅仅只是一个宣传页/logo页，应用必要的一些初始化操作。</p>
