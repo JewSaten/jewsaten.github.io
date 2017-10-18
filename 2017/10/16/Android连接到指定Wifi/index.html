@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="wifi," />
 
 
 
@@ -108,16 +108,18 @@
 
 
 
-<meta name="description" content="今天越安逸，明天越危险">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JEW SATEN">
-<meta property="og:url" content="http://yoursite.com/archives/2017/08/index.html">
+<meta name="description" content="最近在做一个wifi相关的项目，在应用内去操作WifiManager扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。 经调试updateNetwork())它返回的是-1，即使是你重新创建一个WifiConfiguration添加该网络addNetwork())依然返回-1。同样的，removeNetwork())也是返回-1的。 那么为啥出">
+<meta name="keywords" content="wifi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android连接到指定Wifi">
+<meta property="og:url" content="http://yoursite.com/2017/10/16/Android连接到指定Wifi/index.html">
 <meta property="og:site_name" content="JEW SATEN">
-<meta property="og:description" content="今天越安逸，明天越危险">
+<meta property="og:description" content="最近在做一个wifi相关的项目，在应用内去操作WifiManager扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。 经调试updateNetwork())它返回的是-1，即使是你重新创建一个WifiConfiguration添加该网络addNetwork())依然返回-1。同样的，removeNetwork())也是返回-1的。 那么为啥出">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-18T07:53:52.443Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JEW SATEN">
-<meta name="twitter:description" content="今天越安逸，明天越危险">
+<meta name="twitter:title" content="Android连接到指定Wifi">
+<meta name="twitter:description" content="最近在做一个wifi相关的项目，在应用内去操作WifiManager扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。 经调试updateNetwork())它返回的是-1，即使是你重新创建一个WifiConfiguration添加该网络addNetwork())依然返回-1。同样的，removeNetwork())也是返回-1的。 那么为啥出">
 
 
 
@@ -145,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/08/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/16/Android连接到指定Wifi/"/>
 
 
 
 
 
-  <title>归档 | JEW SATEN</title>
+  <title>Android连接到指定Wifi | JEW SATEN</title>
   
 
 
@@ -176,7 +178,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,288 +282,203 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 13 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/29/为什么30岁的工程师容易跳槽/" itemprop="url">
-              
-                <span itemprop="name">为什么30岁的工程师容易跳槽?</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-29T16:41:18+08:00"
-              content="2017-08-29" >
-          08-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/28/immersive-statusbar/" itemprop="url">
-              
-                <span itemprop="name">你的Android应用应该主动适配沉浸式状态栏</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-28T17:31:38+08:00"
-              content="2017-08-28" >
-          08-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/16/gradle-no-active-tasks/" itemprop="url">
-              
-                <span itemprop="name">Gradle编译there are no active background tasks</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-16T15:39:20+08:00"
-              content="2017-08-16" >
-          08-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/11/弱者思维/" itemprop="url">
-              
-                <span itemprop="name">请警惕你的 “弱者思维”</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-11T15:24:21+08:00"
-              content="2017-08-11" >
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/10/三十而立否？/" itemprop="url">
-              
-                <span itemprop="name">做好 3 件事，不怕三十不立</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-10T16:11:14+08:00"
-              content="2017-08-10" >
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/09/Android-Studio-updates/" itemprop="url">
-              
-                <span itemprop="name">记一次 Android Studio 更新</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-09T11:18:11+08:00"
-              content="2017-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/07/android-room/" itemprop="url">
-              
-                <span itemprop="name">Android Room持久化库</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-07T17:49:37+08:00"
-              content="2017-08-07" >
-          08-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/16/Android连接到指定Wifi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JEW SATEN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JEW SATEN">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android连接到指定Wifi</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T14:43:14+08:00">
+                2017-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读 <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在做一个wifi相关的项目，在应用内去操作<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html" target="_blank" rel="external">WifiManager</a>扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。</p>
+<p>经调试<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#updateNetwork(android.net.wifi.WifiConfiguration" target="_blank" rel="external">updateNetwork()</a>)它返回的是-1，即使是你重新创建一个<a href="https://developer.android.com/reference/android/net/wifi/WifiConfiguration.html" target="_blank" rel="external">WifiConfiguration</a>添加该网络<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#addNetwork(android.net.wifi.WifiConfiguration" target="_blank" rel="external">addNetwork()</a>)依然返回-1。<br>同样的，<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#removeNetwork(int" target="_blank" rel="external">removeNetwork()</a>)也是返回-1的。</p>
+<p>那么为啥出现这种情况，问题在于<a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-network" target="_blank" rel="external">Android 6.0对WLAN API做了如下变更：</a></p>
+<p>Your apps can now change the state of WifiConfiguration objects only if you created these objects. You are not permitted to modify or delete WifiConfiguration objects created by the user or by other apps.</p>
+<p>现在，app只能修改自己创建的WifiConfiguration对象的状态，而不再允许修改或删除由用户或其它app创建的WifiConfiguration对象。如果想控制wifiConfig 那么只能在自己的app中建立其wifiConfig。 </p>
+<p>当然了，设备Root成为<a href="https://stackoverflow.com/questions/21183328/how-to-make-my-app-a-device-owner" target="_blank" rel="external">Device Owner</a>之后, 将可以编辑或移除任何无线网络配置，包括那些不是由自己创建的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="JEW SATEN WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="JEW SATEN Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/wifi/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> wifi</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/09/optimize-app-startup/" rel="next" title="APP启动那点事儿">
+                <i class="fa fa-chevron-left"></i> APP启动那点事儿
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -569,6 +486,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTg5My82NDU4"></div>
+    
+  </div>
+
 
         </div>
         
@@ -807,11 +730,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
