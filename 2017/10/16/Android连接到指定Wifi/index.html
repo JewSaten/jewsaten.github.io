@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="JEW SATEN">
 <meta property="og:description" content="最近在做一个wifi相关的项目，在应用内去操作WifiManager扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。 经调试updateNetwork())它返回的是-1，即使是你重新创建一个WifiConfiguration添加该网络addNetwork())依然返回-1。同样的，removeNetwork())也是返回-1的。 那么为啥出">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-19T06:22:55.559Z">
+<meta property="og:updated_time" content="2017-10-19T06:27:04.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android连接到指定Wifi">
 <meta name="twitter:description" content="最近在做一个wifi相关的项目，在应用内去操作WifiManager扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。 经调试updateNetwork())它返回的是-1，即使是你重新创建一个WifiConfiguration添加该网络addNetwork())依然返回-1。同样的，removeNetwork())也是返回-1的。 那么为啥出">
@@ -384,7 +384,7 @@
 
       
         <p>最近在做一个wifi相关的项目，在应用内去操作<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html" target="_blank" rel="external">WifiManager</a>扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。</p>
-<p>经调试<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#updateNetwork\(android.net.wifi.WifiConfiguration\" target="_blank" rel="external">updateNetwork()</a>)它返回的是-1，即使是你重新创建一个<a href="https://developer.android.com/reference/android/net/wifi/WifiConfiguration.html" target="_blank" rel="external">WifiConfiguration</a>添加该网络<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#addNetwork\(android.net.wifi.WifiConfiguration\" target="_blank" rel="external">addNetwork()</a>)依然返回-1。<br>同样的，<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#removeNetwork\(int\" target="_blank" rel="external">removeNetwork()</a>)也是返回-1的。</p>
+<p>经调试<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#updateNetwork(android.net.wifi.WifiConfiguration" target="_blank" rel="external">updateNetwork()</a>)它返回的是-1，即使是你重新创建一个<a href="https://developer.android.com/reference/android/net/wifi/WifiConfiguration.html" target="_blank" rel="external">WifiConfiguration</a>添加该网络<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#addNetwork(android.net.wifi.WifiConfiguration" target="_blank" rel="external">addNetwork()</a>)依然返回-1。<br>同样的，<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#removeNetwork(int" target="_blank" rel="external">removeNetwork()</a>)也是返回-1的。</p>
 <p>那么为啥出现这种情况，问题在于<a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-network" target="_blank" rel="external">Android 6.0对WLAN API做了如下变更：</a></p>
 <p>Your apps can now change the state of WifiConfiguration objects only if you created these objects. You are not permitted to modify or delete WifiConfiguration objects created by the user or by other apps.</p>
 <p>现在，app只能修改自己创建的WifiConfiguration对象的状态，而不再允许修改或删除由用户或其它app创建的WifiConfiguration对象。如果想控制wifiConfig 那么只能在自己的app中建立其wifiConfig。 </p>
