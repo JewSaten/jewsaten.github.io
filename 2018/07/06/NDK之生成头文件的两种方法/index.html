@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="wifi," />
+  <meta name="keywords" content="ndk,jni," />
 
 
 
@@ -108,20 +108,23 @@
 
 
 
-<meta name="description" content="最近在做一个wifi相关的项目，在应用内去操作WifiManager扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。  经调试updateNetwork())它返回的是-1，即使是你重新创建一个WifiConfiguration添加该网络addNetwork())依然返回-1。同样的，removeNetwork())也是返回-1的。 那么为啥">
-<meta name="keywords" content="wifi">
+<meta name="description" content="1、Terminal命令行最为常规的一种方式，用的居多，这里不赘述，直接上图。  2、Android Studio右键菜单一键生成头文件 优点： 相比前一种方便快速，一劳永逸，只需根据项目实际的目录结构修改生成的位置。">
+<meta name="keywords" content="ndk,jni">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android连接到指定Wifi">
-<meta property="og:url" content="http://yoursite.com/2017/10/16/Android连接到指定Wifi/index.html">
+<meta property="og:title" content="NDK之生成头文件的两种方法">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/NDK之生成头文件的两种方法/index.html">
 <meta property="og:site_name" content="JEW SATEN">
-<meta property="og:description" content="最近在做一个wifi相关的项目，在应用内去操作WifiManager扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。  经调试updateNetwork())它返回的是-1，即使是你重新创建一个WifiConfiguration添加该网络addNetwork())依然返回-1。同样的，removeNetwork())也是返回-1的。 那么为啥">
+<meta property="og:description" content="1、Terminal命令行最为常规的一种方式，用的居多，这里不赘述，直接上图。  2、Android Studio右键菜单一键生成头文件 优点： 相比前一种方便快速，一劳永逸，只需根据项目实际的目录结构修改生成的位置。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2018/06/14/5b21de63ea7e7.png">
-<meta property="og:updated_time" content="2018-06-14T03:19:34.553Z">
+<meta property="og:image" content="https://i.loli.net/2018/07/06/5b3ecb975fdf0.png">
+<meta property="og:image" content="https://i.loli.net/2018/07/06/5b3ece052e027.png">
+<meta property="og:image" content="https://i.loli.net/2018/07/06/5b3ece0515957.png">
+<meta property="og:image" content="https://i.loli.net/2018/07/06/5b3ece052f39b.png">
+<meta property="og:updated_time" content="2018-07-06T02:06:33.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android连接到指定Wifi">
-<meta name="twitter:description" content="最近在做一个wifi相关的项目，在应用内去操作WifiManager扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。  经调试updateNetwork())它返回的是-1，即使是你重新创建一个WifiConfiguration添加该网络addNetwork())依然返回-1。同样的，removeNetwork())也是返回-1的。 那么为啥">
-<meta name="twitter:image" content="https://i.loli.net/2018/06/14/5b21de63ea7e7.png">
+<meta name="twitter:title" content="NDK之生成头文件的两种方法">
+<meta name="twitter:description" content="1、Terminal命令行最为常规的一种方式，用的居多，这里不赘述，直接上图。  2、Android Studio右键菜单一键生成头文件 优点： 相比前一种方便快速，一劳永逸，只需根据项目实际的目录结构修改生成的位置。">
+<meta name="twitter:image" content="https://i.loli.net/2018/07/06/5b3ecb975fdf0.png">
 
 
 
@@ -149,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/16/Android连接到指定Wifi/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/NDK之生成头文件的两种方法/"/>
 
 
 
 
 
-  <title>Android连接到指定Wifi | JEW SATEN</title>
+  <title>NDK之生成头文件的两种方法 | JEW SATEN</title>
   
 
 
@@ -294,7 +297,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/16/Android连接到指定Wifi/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/NDK之生成头文件的两种方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JEW SATEN">
@@ -311,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Android连接到指定Wifi</h1>
+          <h1 class="post-title" itemprop="name headline">NDK之生成头文件的两种方法</h1>
         
 
         <div class="post-meta">
@@ -323,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T14:43:14+08:00">
-                2017-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T09:02:21+08:00">
+                2018-07-06
               </time>
             
 
@@ -385,13 +388,12 @@
       
 
       
-        <p>最近在做一个wifi相关的项目，在应用内去操作<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html" target="_blank" rel="external">WifiManager</a>扫描得到的可用结果集，断开指定的已经连接的wifi在重新连接你会发现连接不上，包括删除该网络也是不行的。</p>
-<p><img src="https://i.loli.net/2018/06/14/5b21de63ea7e7.png" alt=""></p>
-<p>经调试<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#updateNetwork(android.net.wifi.WifiConfiguration" target="_blank" rel="external">updateNetwork()</a>)它返回的是-1，即使是你重新创建一个<a href="https://developer.android.com/reference/android/net/wifi/WifiConfiguration.html" target="_blank" rel="external">WifiConfiguration</a>添加该网络<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#addNetwork(android.net.wifi.WifiConfiguration" target="_blank" rel="external">addNetwork()</a>)依然返回-1。<br>同样的，<a href="https://developer.android.com/reference/android/net/wifi/WifiManager.html#removeNetwork(int" target="_blank" rel="external">removeNetwork()</a>)也是返回-1的。</p>
-<p>那么为啥出现这种情况，问题在于<a href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-network" target="_blank" rel="external">Android 6.0对WLAN API做了如下变更：</a></p>
-<p>Your apps can now change the state of WifiConfiguration objects only if you created these objects. You are not permitted to modify or delete WifiConfiguration objects created by the user or by other apps.</p>
-<p>现在，app只能修改自己创建的WifiConfiguration对象的状态，而不再允许修改或删除由用户或其它app创建的WifiConfiguration对象。如果想控制wifiConfig 那么只能在自己的app中建立其wifiConfig。 </p>
-<p>当然了，设备Root成为<a href="https://stackoverflow.com/questions/21183328/how-to-make-my-app-a-device-owner" target="_blank" rel="external">Device Owner</a>之后, 将可以编辑或移除任何无线网络配置，包括那些不是由自己创建的。</p>
+        <h3 id="1、Terminal命令行"><a href="#1、Terminal命令行" class="headerlink" title="1、Terminal命令行"></a>1、Terminal命令行</h3><p>最为常规的一种方式，用的居多，这里不赘述，直接上图。</p>
+<p><img src="https://i.loli.net/2018/07/06/5b3ecb975fdf0.png" alt=""></p>
+<h3 id="2、Android-Studio右键菜单一键生成头文件"><a href="#2、Android-Studio右键菜单一键生成头文件" class="headerlink" title="2、Android Studio右键菜单一键生成头文件"></a>2、Android Studio右键菜单一键生成头文件</h3><p> 优点： 相比前一种方便快速，一劳永逸，只需根据项目实际的目录结构修改生成的位置。</p>
+<p><img src="https://i.loli.net/2018/07/06/5b3ece052e027.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/07/06/5b3ece0515957.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/07/06/5b3ece052f39b.png" alt=""></p>
 
       
     </div>
@@ -444,7 +446,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/wifi/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> wifi</a>
+            <a href="/tags/ndk/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> ndk</a>
+          
+            <a href="/tags/jni/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> jni</a>
           
         </div>
       
@@ -457,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/09/optimize-app-startup/" rel="next" title="APP启动那点事儿">
-                <i class="fa fa-chevron-left"></i> APP启动那点事儿
+              <a href="/2017/10/16/Android连接到指定Wifi/" rel="next" title="Android连接到指定Wifi">
+                <i class="fa fa-chevron-left"></i> Android连接到指定Wifi
               </a>
             
           </div>
@@ -466,10 +470,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/06/NDK之生成头文件的两种方法/" rel="prev" title="NDK之生成头文件的两种方法">
-                NDK之生成头文件的两种方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -519,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -619,6 +628,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Terminal命令行"><span class="nav-number">1.</span> <span class="nav-text">1、Terminal命令行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Android-Studio右键菜单一键生成头文件"><span class="nav-number">2.</span> <span class="nav-text">2、Android Studio右键菜单一键生成头文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
